@@ -2,11 +2,22 @@
     <dimen name="padding_layout">10dp</dimen>
 
     <dimen name="pr_1">5sp</dimen>
+    <dimen name="p_1">5sp</dimen>
+    <dimen name="p_2">10sp</dimen>
+    <dimen name="p_3">25sp</dimen>
 
     <dimen name="mt_1">5sp</dimen>
     <dimen name="mt_2">10sp</dimen>
 
-    <dimen name="contact_name">35sp</dimen>
-    <dimen name="contact_phone">20sp</dimen>
-    <dimen name="contact_email">20sp</dimen>
+    <dimen name="m_1">5sp</dimen>
+    <dimen name="m_2">10sp</dimen>
+    <dimen name="m_3">25sp</dimen>
+
+    <dimen name="cardview_radio">4dp</dimen>
+
+    <dimen name="contact_name">22sp</dimen>
+    <dimen name="contact_phone">18sp</dimen>
+    <dimen name="contact_email">18sp</dimen>
+
+    <dimen name="like_btn">40dp</dimen>
 </resources>

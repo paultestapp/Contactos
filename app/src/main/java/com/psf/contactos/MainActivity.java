@@ -8,6 +8,9 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +20,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ListView lst_contacto;
+    RecyclerView lst_contacto;
 
     private static final String[] INITIAL_PERMS={
             android.Manifest.permission.CALL_PHONE
@@ -35,38 +38,31 @@ public class MainActivity extends AppCompatActivity {
         resources = getResources();
         checkPermission();
 
-        contacts = new ArrayList<Contact>();
-
-        contacts.add(new Contact("Jhon Smith", "3337777", "jhon@host.com"));
-        contacts.add(new Contact("Petra Pothan", "2227777", "ppothan@host.com"));
-        contacts.add(new Contact("Henry Ashthor", "3334477", "henry@host.com"));
-        contacts.add(new Contact("Bill Osborn", "3233477", "osborn@host.com"));
-        contacts.add(new Contact("Heydi Klanston", "1330097", "heydi@host.com"));
-
-        ArrayList<String> contacts_name = new ArrayList<String>();
-
-        for (Contact contact : contacts) {
-            contacts_name.add(contact.getName());
-        }
-
         lst_contacto = findViewById(R.id.lst_contactos);
-        lst_contacto.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contacts_name));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
 
-        lst_contacto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent details = new Intent(MainActivity.this, DetalleContacto.class);
-                details.putExtra(resources.getString(R.string.tag_name), contacts.get(i).getName());
-                details.putExtra(resources.getString(R.string.tag_phone), contacts.get(i).getPhone());
-                details.putExtra(resources.getString(R.string.tag_email), contacts.get(i).getEmail());
-                startActivity(details);
-                finish();
-            }
-        });
+        lst_contacto.setLayoutManager(layoutManager);
+        setDataContact();
+        setAdapter();
 
     }
 
+    public void setAdapter() {
+        ContactAdapter contactAdapter = new ContactAdapter(contacts, this);
+        lst_contacto.setAdapter(contactAdapter);
+    }
 
+    public void setDataContact() {
+        contacts = new ArrayList<Contact>();
+
+        contacts.add(new Contact(R.drawable.photo_1, "Jhon Smith", "3337777", "jhon@host.com"));
+        contacts.add(new Contact(R.drawable.photo_2,"Petra Pothan", "2227777", "ppothan@host.com"));
+        contacts.add(new Contact(R.drawable.photo_3,"Henry Ashthor", "3334477", "henry@host.com"));
+        contacts.add(new Contact(R.drawable.photo_4,"Daria Osborn", "3233477", "osborn@host.com"));
+        contacts.add(new Contact(R.drawable.photo_5,"Heydi Klanston", "1330097", "heydi@host.com"));
+    }
 
 
     private  void checkPermission() {

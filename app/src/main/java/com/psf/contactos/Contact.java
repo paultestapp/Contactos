@@ -5,14 +5,24 @@ package com.psf.contactos;
  */
 
 public class Contact {
+    private int photo;
     private String name;
     private String phone;
     private String email;
 
-    public Contact(String name, String phone, String email) {
+    public Contact(int photo, String name, String phone, String email) {
+        this.photo = photo;
         this.name = name;
         this.phone = phone;
         this.email = email;
+    }
+
+    public int getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(int photo) {
+        this.photo = photo;
     }
 
     public String getName() {
