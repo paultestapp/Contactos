@@ -54,7 +54,6 @@ public class ContactAdapter extends  RecyclerView.Adapter<ContactAdapter.Contact
                 details.putExtra(resources.getString(R.string.tag_phone), contacts.get(idx).getPhone());
                 details.putExtra(resources.getString(R.string.tag_email), contacts.get(idx).getEmail());
                 activity.startActivity(details);
-                activity.finish();
             }
         });
 
