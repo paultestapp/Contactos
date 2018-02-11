@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Contactos</string>
+    <string name="label_name_contact">Name</string>
+    <string name="label_phone_contact">000 0000</string>
+    <string name="tag_name">name</string>
+    <string name="tag_phone">phone</string>
+    <string name="tag_email">email</string>
+</resources>

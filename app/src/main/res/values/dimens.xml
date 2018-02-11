@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="padding_layout">10dp</dimen>
+
+    <dimen name="pr_1">5sp</dimen>
+
+    <dimen name="mt_1">5sp</dimen>
+    <dimen name="mt_2">10sp</dimen>
+
+    <dimen name="contact_name">35sp</dimen>
+    <dimen name="contact_phone">20sp</dimen>
+    <dimen name="contact_email">20sp</dimen>
+</resources>
